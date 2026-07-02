@@ -31,7 +31,10 @@ spec:
             - name: PORT
               value: "8003"
             - name: DATABASE_URL
-              value: "postgres://admin:admin123@<RDS_ENDPOINT>:5432/targeting_db?sslmode=disable"
+              valueFrom:
+                secretKeyRef:
+                  name: targeting-service-secret
+                  key: DATABASE_URL
             - name: AUTH_SERVICE_URL
               value: "http://auth-service.auth-service.svc.cluster.local:8001"
           livenessProbe:
