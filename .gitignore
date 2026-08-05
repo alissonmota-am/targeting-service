@@ -1,2 +1,6 @@
 k8s/secret.yaml
 .env
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
