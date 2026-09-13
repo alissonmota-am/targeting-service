@@ -62,7 +62,7 @@ def require_auth(f):
         return f(*args, **kwargs)
     return decorated
 
-# --- Endpoints da API ------
+# --- Endpoints da API -------
 
 @app.route('/health')
 def health():
