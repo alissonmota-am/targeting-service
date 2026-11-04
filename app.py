@@ -10,6 +10,8 @@ from dotenv import load_dotenv
 from functools import wraps
 import logging
 
+from telemetry import init_telemetry
+
 # Configura o logging
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
@@ -18,6 +20,9 @@ log = logging.getLogger(__name__)
 load_dotenv() 
 
 app = Flask(__name__)
+
+# Inicializa o OpenTelemetry (instrumenta Flask, requests e psycopg2)
+init_telemetry(app)
 
 # --- Configuração ---
 DATABASE_URL = os.getenv("DATABASE_URL")
