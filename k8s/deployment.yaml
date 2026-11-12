@@ -6,7 +6,6 @@ metadata:
   labels:
     app: targeting-service
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: targeting-service
